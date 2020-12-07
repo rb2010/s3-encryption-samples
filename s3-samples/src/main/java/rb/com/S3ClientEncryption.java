@@ -18,9 +18,9 @@ import com.amazonaws.services.s3.model.KMSEncryptionMaterialsProvider;
  */
 public class S3ClientEncryption {
 
-        private static final String BUCKET_NAME = "REPACE_ME";
-        private static final String ENCRYPTED_KEY3 = "REPACE_ME";
-        private static final String keyId = "REPACE_ME";
+        private static final String BUCKET_NAME = "REPLACE_ME";
+        private static final String S3_KEY = "REPLACE_ME";
+        private static final String KMS_KEY_ID = "REPLACE_ME";
 
         public static void main(String[] args) {
                 out.println("Starting s3 encryption!");
@@ -35,11 +35,11 @@ public class S3ClientEncryption {
                                 .withRegion(Regions.US_EAST_1)
                                 .withCryptoConfiguration(new CryptoConfigurationV2()
                                                 .withCryptoMode((CryptoMode.StrictAuthenticatedEncryption)))
-                                .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(keyId)).build();
+                                .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(KMS_KEY_ID)).build();
 
-                s3Encryption.putObject(BUCKET_NAME, ENCRYPTED_KEY3,
+                s3Encryption.putObject(BUCKET_NAME, S3_KEY,
                                 "This is the 3rd content to encrypt with a key created in the AWS Console");
 
-                out.println(s3Encryption.getObjectAsString(BUCKET_NAME, ENCRYPTED_KEY3));
+                out.println(s3Encryption.getObjectAsString(BUCKET_NAME, S3_KEY));
         }
 }

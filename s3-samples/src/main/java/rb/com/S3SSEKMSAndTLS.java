@@ -17,14 +17,14 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.SSEAwsKeyManagementParams;
 
 /**
- * Hello world!
+ * Hello world! TODO: INCOMPLETE IMPL
  *
  */
-public class S3SSEKMS {
+public class S3SSEKMSAndTLS {
 
-        private static final String BUCKET_NAME = "REPACE_ME";
-        private static final String ENCRYPTED_KEY3 = "REPACE_ME";
-        private static final String keyId = "REPACE_ME";
+        private static final String BUCKET_NAME = "REPLACE_ME";
+        private static final String S3_KEY = "REPLACE_ME";
+        private static final String keyId = "REPLACE_ME";
 
         public static void main(String[] args) {
                 out.println("Starting s3 encryption!");
@@ -40,16 +40,16 @@ public class S3SSEKMS {
                 //                                 .withCryptoMode((CryptoMode.StrictAuthenticatedEncryption)))
                 //                 .withEncryptionMaterialsProvider(new KMSEncryptionMaterialsProvider(keyId)).build();
 
-                // s3Encryption.putObject(BUCKET_NAME, ENCRYPTED_KEY3,
+                // s3Encryption.putObject(BUCKET_NAME, S3_KEY,
                 //                 "This is the 3rd content to encrypt with a key created in the AWS Console");
 
-                PutObjectRequest putRequest = new PutObjectRequest(BUCKET_NAME, ENCRYPTED_KEY3, new File("/Users/ranjanbhandari/projects/sample-s3-java/s3-samples/src/main/resources/log4j2.xml")).withSSEAwsKeyManagementParams(new SSEAwsKeyManagementParams());
+                PutObjectRequest putRequest = new PutObjectRequest(BUCKET_NAME, S3_KEY, new File("/Users/ranjanbhandari/projects/sample-s3-java/s3-samples/src/main/resources/log4j2.xml")).withSSEAwsKeyManagementParams(new SSEAwsKeyManagementParams());
                 ObjectMetadata metadata = new ObjectMetadata();
                 metadata.setContentType("plain/text");
                 metadata.addUserMetadata("title", "someTitle");
                 putRequest.setMetadata(metadata);
                 s3Client.putObject(putRequest);
 
-                // out.println(s3Encryption.getObjectAsString(BUCKET_NAME, ENCRYPTED_KEY3));
+                // out.println(s3Encryption.getObjectAsString(BUCKET_NAME, S3_KEY));
         }
 }
