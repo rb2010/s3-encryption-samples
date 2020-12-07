@@ -37,6 +37,6 @@ public class S3SSECustomerManaged {
                 putRequest.setMetadata(metadata);
                 s3Client.putObject(putRequest);
 
-                out.println(s3Encryption.getObjectAsString(BUCKET_NAME, S3_KEY));
+                out.println(s3Client.getObjectAsString(BUCKET_NAME, S3_KEY));
         }
 }
