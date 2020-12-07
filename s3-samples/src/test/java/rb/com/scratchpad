@@ -1,0 +1,1 @@
+aws kms decrypt --ciphertext-blob fileb:///key3 --output text --query Plaintext | base64 --decode > ExamplePlaintextFile
