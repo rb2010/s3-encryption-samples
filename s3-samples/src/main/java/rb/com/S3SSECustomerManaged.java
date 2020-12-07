@@ -18,9 +18,9 @@ import com.amazonaws.services.s3.model.SSEAwsKeyManagementParams;
 public class S3SSECustomerManaged {
 
         private static final String FILE_NAME = "/Users/ranjanbhandari/projects/sample-s3-java/s3-samples/src/main/resources/log4j2.xml";
-        private static final String BUCKET_NAME = "s3ncryption-tests";
-        private static final String ENCRYPTED_KEY3 = "customer-managed-sse-ranjan-test";
-        private static final String keyId = "arn:aws:kms:us-east-1:568743118122:key/d7a376f8-f265-42f1-a759-d4b971d050d9";
+        private static final String BUCKET_NAME = "REPACE_ME";
+        private static final String ENCRYPTED_KEY3 = "REPACE_ME";
+        private static final String keyId = "REPACE_ME";
 
         public static void main(String[] args) {
                 out.println("Starting s3 encryption!");
